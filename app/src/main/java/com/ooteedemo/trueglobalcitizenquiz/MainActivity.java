@@ -14,10 +14,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button falseBtn;
     private TextView questionTxtVw;
 
+    private Question[] questionsBank = new Question[] {
+            new Question(R.string.question_brazil,true),
+            new Question(R.string.question_malaysia,true),
+            new Question(R.string.question_saudi,false),
+            new Question(R.string.question_sudan,false),
+            new Question(R.string.question_zimbabwe,true),
+            new Question(R.string.question_turkey,false),
+    };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         trueBtn = findViewById(R.id.true_btn);
         falseBtn = findViewById(R.id.false_btn);
         questionTxtVw = findViewById(R.id.answer_text_view);

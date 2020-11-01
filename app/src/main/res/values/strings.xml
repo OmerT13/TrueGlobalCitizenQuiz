@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">TrueGlobalCitizenQuiz</string>
-    <string name="question_declaration">Singapore is the capital city of the Republic of Singapore</string>
     <string name="true_text">True</string>
     <string name="false_text">False</string>
+    <string name="correct_answer">That\'s Correct!</string>
+    <string name="wrong_answer">That\s Wrong!</string>
+    <string name="question_saudi">Dubai is the capital city of Saudi Arabia</string>
+    <string name="question_sudan">Sudan is a landlocked country</string>
+    <string name="question_malaysia">Malaysia shares borders with Singapore and Indonesia</string>
+    <string name="question_turkey">Turkey was named after the bird of the same name</string>
+    <string name="question_brazil">Brazil is the largest country in South America</string>
+    <string name="question_zimbabwe">Zimbabwe shares borders with the Republic of South Africa</string>
 </resources>
