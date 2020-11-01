@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int currentQuestionIndex = 0;
 
     private Question[] questionsBank = new Question[] {
+            new Question(R.string.question_saudi,false),
             new Question(R.string.question_brazil,true),
             new Question(R.string.question_malaysia,true),
-            new Question(R.string.question_saudi,false),
             new Question(R.string.question_sudan,false),
             new Question(R.string.question_zimbabwe,true),
             new Question(R.string.question_turkey,false),
@@ -49,17 +49,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.true_btn:
-                Toast.makeText(MainActivity.this,"True",Toast.LENGTH_SHORT).show();
+                checkAnswer(true);
                 break;
             case R.id.false_btn:
-                Toast.makeText(MainActivity.this,"False",Toast.LENGTH_SHORT).show();
+                checkAnswer(false);
                 break;
             case R.id.next_btn:
-                Log.d("MYTAG", "onClick: "+currentQuestionIndex);
-                questionTxtVw.setText(questionsBank[currentQuestionIndex].getAnswerResId());
 //                We use the modulus to make sure we loop the array and never go out of bounds
                 currentQuestionIndex = (currentQuestionIndex+1)%questionsBank.length;
+                updateQuestion();
                 break;
         }
+    }
+
+    private void updateQuestion() {
+        Log.d("MYTAG", "onClick: "+currentQuestionIndex);
+        questionTxtVw.setText(questionsBank[currentQuestionIndex].getAnswerResId());
+    }
+
+    private void checkAnswer(boolean userChooseCorrect) {
+        boolean answerIsTrue = questionsBank[currentQuestionIndex].isAnswerTrue();
+        Log.d("MYTAG", currentQuestionIndex+"||"+userChooseCorrect+"|| "+questionsBank[currentQuestionIndex].isAnswerTrue());
+        int toastMsgId;
+
+        if (userChooseCorrect==answerIsTrue) {
+            toastMsgId=R.string.correct_answer;
+        } else {
+            toastMsgId=R.string.wrong_answer;
+        }
+
+        Toast.makeText(MainActivity.this,toastMsgId,Toast.LENGTH_SHORT).show();
     }
 }
