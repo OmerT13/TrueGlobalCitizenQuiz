@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button trueBtn;
     private Button falseBtn;
     private ImageButton nextBtn;
+    private ImageButton prevBtn;
 
     private TextView questionTxtVw;
 
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         trueBtn = findViewById(R.id.true_btn);
         falseBtn = findViewById(R.id.false_btn);
         nextBtn = findViewById(R.id.next_btn);
+        prevBtn = findViewById(R.id.previous_btn);
 
         questionTxtVw = findViewById(R.id.answer_text_view);
 
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         trueBtn.setOnClickListener(this);
         falseBtn.setOnClickListener(this);
         nextBtn.setOnClickListener(this);
+        prevBtn.setOnClickListener(this);
     }
 
     @Override
@@ -57,6 +60,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.next_btn:
 //                We use the modulus to make sure we loop the array and never go out of bounds
                 currentQuestionIndex = (currentQuestionIndex+1)%questionsBank.length;
+                updateQuestion();
+                break;
+            case R.id.previous_btn:
+                currentQuestionIndex = (currentQuestionIndex-1)%questionsBank.length;
                 updateQuestion();
                 break;
         }

@@ -11,4 +11,5 @@
     <string name="question_brazil">Brazil is the largest country in South America</string>
     <string name="question_zimbabwe">Zimbabwe shares borders with the Republic of South Africa</string>
     <string name="next_text">Next</string>
+    <string name="previous_text">Previous</string>
 </resources>
